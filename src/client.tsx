@@ -1,6 +1,6 @@
 import { hc } from 'hono/client'
-import { useState } from 'hono/jsx'
-import { render } from 'hono/jsx/dom'
+import { useState } from 'react'
+import ReactDom from 'react-dom/client'
 import type { ApiRoutes } from '.'
 
 const client = hc<ApiRoutes>('/')
@@ -28,5 +28,4 @@ function App() {
   )
 }
 
-const domNode = document.getElementById('root')!
-render(<App />, domNode)
+ReactDom.hydrateRoot(document.getElementById('root') as HTMLElement, <App />)

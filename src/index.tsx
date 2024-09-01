@@ -4,10 +4,10 @@ import { z } from 'zod'
 import { renderer } from './renderer'
 
 const app = new Hono()
-app.use(renderer)
+app.get("*", renderer)
 
 app.get('/', (c) => {
-  return c.render(<div id="root"></div>)
+  return c.render(<div id="root">pepe</div>)
 })
 
 const schema = z.object({
